@@ -11,6 +11,7 @@
 <h2>
   Add a new post
 </h2>
+<% if current_user != nil %>
 
 <form action="/insert_post" method="post">
   <div>
@@ -38,11 +39,15 @@
   </div>
 
   <input type="hidden" id="board_id_box" name="query_board_id" value="<%= @the_board.id %>">
+  
 
   <button>
     Add post
   </button>
 </form>
+<% else %>
+<p>You must be <a href="/users/sign_in">signed in</a> to add a board.</p>
+<% end %>
 
 <hr>
 
